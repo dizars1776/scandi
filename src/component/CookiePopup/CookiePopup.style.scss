@@ -1,0 +1,113 @@
+/**
+ * ScandiPWA - Progressive Web App for Magento
+ *
+ * Copyright © Scandiweb, Inc. All rights reserved.
+ * See LICENSE for license details.
+ *
+ * @license OSL-3.0 (Open Software License ("OSL") v. 3.0)
+ * @package scandipwa/scandipwa
+ * @link https://github.com/scandipwa/scandipwa
+ */
+
+.CookiePopup {
+    --cookie-popup-bottom-margin: 0px;
+    --cta-color: #f9bbac;
+    
+    height: 84;
+    background-color: black;
+    position: fixed;
+    inset-block-end: var(--cookie-popup-bottom-margin);
+    display: flex;
+    opacity: 1;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 300;
+    border-top: 1px solid #fff;
+
+    @include desktop {
+        inset-inline-start: 50%;
+        transform: translateX(-50%);
+        padding: 5px 10px 5px 0px;
+
+        &:dir(rtl) {
+            transform: translateX(50%);
+        }
+    }
+
+    @include mobile {
+        flex-direction: column;
+        padding: 0px;
+    }
+
+    &-Content {
+        color: white;
+        font-size: 14px;
+        font-weight: 400;
+        margin-block-end: 12px;
+        text-align: start;
+        margin-inline: 10px;
+
+        &::after {
+            content: '.';
+            color: var(--color-white);
+        }
+
+        @include mobile {
+            line-height: 1.9;
+            margin-inline: 8px;
+            margin-block-end: 19px;
+        }
+    }
+
+    &-Link {
+        // font-size: 12px;
+        color: var(--cta-color);
+        font-weight: 400;
+    }
+
+    &-CTA {
+        color: black;
+        text-transform: capitalize;
+        font-weight: 700;
+        font-size: 14px;
+        cursor: pointer;
+        white-space: nowrap;
+        background-color: var(--cta-color);
+        height: 64px;
+        outline: 0;
+        text-shadow: 1px 1px 1px rgba(0,0,0,.004);
+        box-sizing: border-box;
+        margin-block: 5px;
+
+        @include desktop {
+            margin-inline-start: 41px;
+        }
+
+        @include mobile {
+            // margin-block-start: 12px;
+            width: calc(100% - 20px);
+            text-align: center;
+            margin-block: 5px;
+        }
+
+        &:hover {
+            color: var(--primary-dark-color);
+        }
+
+        & button {
+            padding: 22px 41px;
+            transition: all 0.25s ease-out;
+            cursor: pointer;
+            font-weight: 600;
+            border: 1px solid transparent;
+            color: #fff;
+
+            &:hover {
+                border-color: var(--cta-color);
+                background-color: #000; 
+            }
+        }
+    }
+}
+
